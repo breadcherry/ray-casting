@@ -10,16 +10,6 @@ export default class Ray {
         }
     }
 
-    draw(context) {
-        context.beginPath();
-        context.moveTo(this.pos.x, this.pos.y);
-        context.lineTo(
-            this.pos.x + this.dir.x * 100,
-            this.pos.y + this.dir.y * 100
-        );
-        context.stroke();
-    }
-
     cast(obstacle) {
         const x1 = obstacle.a.x;
         const y1 = obstacle.a.y;

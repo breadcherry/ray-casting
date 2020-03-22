@@ -23,7 +23,7 @@ context.fillRect(0, 0, 400, 400)
 document.body.appendChild(canvas);
 
 const rays = [];
-for(let i = 0; i < 360; i+= 0.5) {
+for(let i = 0.25; i <= 360; i+= 0.5) {
     rays.push(new Ray(200, 200, i));
 }
 
@@ -43,6 +43,7 @@ function update() {
     for(let obs of obstacles) {
         for (let wall of obs) {
             context.beginPath();
+            context.lineWidth = 1;
             context.moveTo(wall.a.x, wall.a.y);
             context.lineTo(wall.b.x, wall.b.y);
             context.stroke();
@@ -68,6 +69,7 @@ function update() {
         }
         if(closest) {
             context.beginPath();
+            context.lineWidth = 0.1;
             context.moveTo(ray.pos.x, ray.pos.y);
             context.lineTo(closest.x, closest.y);
             context.stroke();
