@@ -1,4 +1,4 @@
-export default function Rect(x, y, w, h) {
+export function Rect(x, y, w, h) {
     return [
         {
             a: {x: x, y: y},
@@ -17,4 +17,17 @@ export default function Rect(x, y, w, h) {
             b: {x: x, y: y}
         }
     ]
+}
+
+export function drawRect(rect, context, color) {
+    let first = true, path = new Path2D();
+    for(let wall of rect) {
+        if(first) {
+            first = false;
+            path.moveTo(wall.a.x, wall.a.y);
+        }
+        path.lineTo(wall.b.x, wall.b.y);
+    }
+    context.fillStyle = color;
+    context.fill(path);
 }
