@@ -9,12 +9,12 @@ const canvas = new Canvas(400, 400);
 const context = canvas.ctx;
 
 const rays = [];
-for(let i = 0.25; i <= 360; i+= 0.5) {
+for(let i = 0; i <= 360; i+= 0.1) {
     rays.push(new Ray(200, 200, i));
 }
 
 const obstacles = [
-    Rect(0, 0, 400, 400) //Canvas border
+    Rect(0, 0, 400, 400) //Canvas border-
 ];
 
 for(let i = 0; i < 5; i++) {
